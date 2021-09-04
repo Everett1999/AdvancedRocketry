@@ -4,16 +4,16 @@
             "item": "advancedrocketry:moonturf"
         },
         "title": {
-            "translate": "achievement.moonLanding"
+            "translate": "advancement.moonLanding"
         },
         "description": {
-            "translate": "achievement.moonLanding.desc"
+            "translate": "advancement.moonLanding.desc"
         }
     },
     "parent": "advancedrocketry:normal/root",
     "criteria": {
         "moonlanding": {
-            "trigger": "moonlanding"
+            "trigger": "advancedrocketry:moonlanding"
         }
     }
 }

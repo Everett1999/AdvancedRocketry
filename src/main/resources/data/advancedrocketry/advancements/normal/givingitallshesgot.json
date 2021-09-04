@@ -4,16 +4,16 @@
             "item": "advancedrocketry:warpcore"
         },
         "title": {
-            "translate": "achievement.givingItAllShesGot"
+            "translate": "advancement.givingItAllShesGot"
         },
         "description": {
-            "translate": "achievement.givingItAllShesGot.desc"
+            "translate": "advancement.givingItAllShesGot.desc"
         }
     },
     "parent": "advancedrocketry:normal/warp",
     "criteria": {
         "givingitallshesgot": {
-            "trigger": "givingitallshesgot"
+            "trigger": "advancedrocketry:givingitallshesgot"
         }
     }
 }

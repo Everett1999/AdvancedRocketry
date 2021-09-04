@@ -1,5 +1,8 @@
 package zmaster587.advancedRocketry.tile;
 
+import javax.annotation.Nonnull;
+
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
@@ -11,6 +14,8 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import zmaster587.advancedRocketry.api.AdvancedRocketryTileEntityType;
 import zmaster587.advancedRocketry.world.util.WorldDummy;
 import zmaster587.libVulpes.tile.multiblock.hatch.TileFluidHatch;
+
+import javax.annotation.Nonnull;
 
 public class TileFluidTank extends TileFluidHatch {
 
@@ -92,26 +97,27 @@ public class TileFluidTank extends TileFluidHatch {
 	}
 
 	@Override
+	@Nonnull
 	public FluidStack drain(int maxDrain, FluidAction doDrain) {
 		IFluidHandler handler = this.getFluidTankInDirection(Direction.UP);
 
 		FluidStack stack = null;
-		if(handler != null && handler.getFluidInTank(0) != null && 
-				fluidTank.getFluid() != null && fluidTank.getFluid().getFluid() ==
+		if(handler != null && !handler.getFluidInTank(0).isEmpty() &&
+				!fluidTank.getFluid().isEmpty() && fluidTank.getFluid().getFluid() ==
 				handler.getFluidInTank(0).getFluid()) {
 
 			stack = handler.drain(maxDrain, doDrain);
 		}
-		if(stack != null)
+		if(!stack.isEmpty())
 			return stack;
 
 		FluidStack stack2 = super.drain(maxDrain - (stack != null ? stack.getAmount() : 0), doDrain);
 
-		if(stack != null && stack2 != null)
+		if(!stack.isEmpty() && stack2.isEmpty())
 			stack2.setAmount(stack2.getAmount() + stack.getAmount());
 
 		
-		if(stack2 != null && doDrain.execute()) {
+		if(stack2.isEmpty()) {
 			fluidChanged = true;
 		}
 		checkForUpdate();
@@ -141,7 +147,7 @@ public class TileFluidTank extends TileFluidHatch {
 	private boolean canFill(FluidStack stack)
 	{
 		FluidStack stack2 = fluidTank.getFluid();
-		
+
 		return stack2.isEmpty() || (stack2.getFluid() == stack.getFluid());
 	}
 
@@ -159,7 +165,7 @@ public class TileFluidTank extends TileFluidHatch {
 	}
 
 	@Override
-	protected boolean useBucket(int slot, ItemStack stack) {
+	protected boolean useBucket(int slot, @Nonnull ItemStack stack) {
 		boolean bucketUsed = super.useBucket(slot, stack);
 
 		if(bucketUsed) {

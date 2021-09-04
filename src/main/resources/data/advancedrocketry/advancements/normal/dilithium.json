@@ -1,13 +1,13 @@
 {
     "display": {
         "icon": {
-            "item": "libvulpes:productgem"
+            "item": "libvulpes:gemdilithium"
         },
         "title": {
-            "translate": "achievement.dilithium"
+            "translate": "advancement.dilithium"
         },
         "description": {
-            "translate": "achievement.dilithium.desc"
+            "translate": "advancement.dilithium.desc"
         }
     },
     "parent": "advancedrocketry:normal/root",
@@ -17,7 +17,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "libvulpes:productgem",
+                        "item": "libvulpes:gemdilithium",
                         "data": 0
                     }
                 ]

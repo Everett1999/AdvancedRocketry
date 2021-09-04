@@ -7,14 +7,14 @@ import zmaster587.libVulpes.tile.multiblock.TileMultiblockMachine;
 import java.util.*;
 
 public class RecipeHandler {
-	
+
 	private List<Class<?>> machineList = new ArrayList<Class<?>>();
 	
 	public void registerMachine(Class<?> clazz) {
 		if(!machineList.contains(clazz))
 		{
 			machineList.add(clazz);
-			RecipesMachine.getInstance().recipeList.put(clazz, new LinkedList<IRecipe>());
+			RecipesMachine.getInstance().recipeList.put(clazz, new LinkedList<>());
 		}
 		
 	}
@@ -32,7 +32,7 @@ public class RecipeHandler {
 		
 		for(Class<?>  clazz : machineList)
 			try {
-				if(clazz.isAssignableFrom(TileMultiblockMachine.class))
+				if(TileMultiblockMachine.class.isAssignableFrom(clazz))
 				((TileMultiblockMachine)clazz.newInstance()).registerRecipes();
 			} catch (InstantiationException e) {
 				e.printStackTrace();

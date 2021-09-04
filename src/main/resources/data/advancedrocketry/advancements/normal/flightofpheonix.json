@@ -4,17 +4,17 @@
             "item": "advancedrocketry:warpcore"
         },
         "title": {
-            "translate": "achievement.flightOfThePhoenix"
+            "translate": "advancement.flightOfThePhoenix"
         },
         "description": {
-            "translate": "achievement.flightOfThePhoenix.desc"
+            "translate": "advancement.flightOfThePhoenix.desc"
         },
         "frame": "challenge"
     },
     "parent": "advancedrocketry:normal/warp",
     "criteria": {
         "flightofpheonix": {
-            "trigger": "flightofpheonix"
+            "trigger": "advancedrocketry:flightofpheonix"
         }
     }
 }

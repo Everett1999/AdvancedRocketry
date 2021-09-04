@@ -4,10 +4,10 @@
             "item": "advancedrocketry:spacehelmet"
         },
         "title": {
-            "translate": "achievement.suitedUp"
+            "translate": "advancement.suitedUp"
         },
         "description": {
-            "translate": "achievement.suitedUp.desc"
+            "translate": "advancement.suitedUp.desc"
         }
     },
     "parent": "advancedrocketry:normal/root",
@@ -26,7 +26,7 @@
                         "item": "advancedrocketry:spacehelmet"
                     },
 		    {
-                        "item": "advancedrocketry:spacechestplate"
+                        "item": "advancedrocketry:spacechest"
                     }
                 ]
             }
